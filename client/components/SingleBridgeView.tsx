@@ -1,6 +1,6 @@
 
 
-function SingleBridgeView() {
+function SingleBridgeView() {   
     return(
         <h1>This is a bridge bro</h1>
     )
