@@ -1,5 +1,6 @@
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 import { useAuth0 } from '@auth0/auth0-react'
+import { Link } from 'react-router-dom'
 
 function Nav() {
   const { logout, loginWithRedirect, user } = useAuth0()
@@ -17,14 +18,27 @@ function Nav() {
 
   return (
     <>
-      <IfAuthenticated>
-        <button onClick={handleSignOut}>Sign out</button>
-        <p>The user is logged in</p>
-      </IfAuthenticated>
-      <IfNotAuthenticated>
-        <p>The user is NOT logged in !!!!!!</p>
-        <button onClick={handleSignIn}>Please sign in here</button>
-      </IfNotAuthenticated>
+    {/* trolltoll logo, home button, bridges button, calculator button */}
+    {/* demo layout for the nav bar etc */}
+      <div className="placeholder-nav-bar">
+
+        <div className="placeholder-menu-button">
+          <Link to={`/home`}>Home</Link>
+        </div>
+        <div className="placeholder-menu-button">
+          <Link to={`/bridges`}>Bridges</Link>
+        </div>
+        
+        <IfAuthenticated>
+          <button onClick={handleSignOut}>Sign out</button>
+          <p>The user is logged in</p>
+          {/* render username + hardcoded profile pic */}
+        </IfAuthenticated>
+        <IfNotAuthenticated>
+          <p>The user is NOT logged in !!!!!!</p>
+          <button onClick={handleSignIn}>Please sign in here</button>
+        </IfNotAuthenticated>
+      </div>
     </>
   )
 }
