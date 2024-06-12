@@ -18,4 +18,14 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.get('/:name', async (req, res, next) => {
+  try {
+    const name = req.params.name
+    const bridge = await db.getSingleBridge(name)
+    res.json(bridge)
+  } catch (e) {
+    next(e)
+  }
+})
+
 export default router

@@ -22,7 +22,7 @@ export default function Bridges() {
       <ul>
         {bridges.map((br) => {
           return <li key={br.name}>
-            <Link to ="bridge">{br.name}</Link>
+            <Link to={`bridge/${br.name}`}>{br.name}</Link>
 
           
           </li>

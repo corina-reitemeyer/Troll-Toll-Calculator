@@ -7,7 +7,7 @@ import SingleBridgeView from './components/SingleBridgeView.tsx'
 export default createRoutesFromElements(
     <Route path="/" element={<App />}>
         <Route index element={<Bridges />} />
-            <Route path="bridge" element={<SingleBridgeView />}/>
+            <Route path="bridge/:name" element={<SingleBridgeView />}/>
 
     </Route>)
 
