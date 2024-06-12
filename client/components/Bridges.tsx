@@ -19,9 +19,9 @@ export default function Bridges() {
     <>
       <h1>Auckland Bridges🧌</h1>
       <ul>
-        {/* {bridges.map((br) => {
+        {bridges.map((br) => {
           return <li>{br.name}</li>
-        })} */}
+        })}
       </ul>
     </>
   )
