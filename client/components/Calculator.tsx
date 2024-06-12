@@ -7,10 +7,19 @@ export default function Calculator() {
   // if Gold rings is >= 100 = display 1 Goat (conversion)
   // if Goats is >= 1 =  no further conversion, it stays as Goat (no conversion)
   // --------------- //
-  // Bihui's thinking
+  // Bihui's thinking <- WE CHOOSE THIS APPROACH
   // total = total + 50 rock candies
   // if sum < 100 = rockcandies
   // if 100 < total < 10000
   // sum = total % 10
   // if total > 10000, sum = 10000 % 100
+
+  const total = 80748
+  const goatTotal = Math.floor(total / 10000) // expect: 8
+  const goldRingTotal = Math.floor((total % 10000) / 100) //expect: 7
+  const rockCandyTotal = (total % 100000) % 100 // expect: 48
+
+  console.log(goatTotal)
+  console.log(goldRingTotal)
+  console.log(rockCandyTotal)
 }
