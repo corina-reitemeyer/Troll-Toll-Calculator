@@ -7,5 +7,6 @@ export interface Bridge {
   lengthMeters: string;
   lanes?: number | null;
   added_by_user_id: number;
-  active_user_id: number
+  active_user_id: number;
+  image: string;
 }

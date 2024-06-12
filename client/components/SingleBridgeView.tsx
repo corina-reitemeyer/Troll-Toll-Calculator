@@ -2,6 +2,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 import { getSingleBridge } from "../apis/bridge"
+//import BridgeImage from "./BridgeImage"
 //import { getSingleBridge } from "../../server/db/bridge"
 
 
@@ -31,8 +32,8 @@ function SingleBridgeView() {
                 <li>Year built: {bridges.yearBuilt}</li>
                 <li>Length: {bridges.lengthMeters}m</li>
                 {bridges.lanes == null ? null : <li>Lanes: {bridges.lanes}</li>}
-                
             </ul>
+        <img src={bridges.image} alt="bridge name"/>
     
         </>
     )
