@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { FavBridge } from '../../models/favBridge'
 // Use custom hook to make changes to the databases
 import useAddFavBridge from '../hooks/use-add-favBridge'
-import useDeleteFavBridge from '../hooks/use-add-favBridge'
-// write function to handle the change state
+import useDeleteFavBridge from '../hooks/use-delete-favBridge'
+
 function ChangeFavorite() {
   const [clicked, setClicked] = useState(false)
   const [bridgeId, setBridgeId] = useState<number | null>(null)
@@ -11,11 +11,11 @@ function ChangeFavorite() {
   const addFavBridge = useAddFavBridge()
   const deleteFavBridge = useDeleteFavBridge()
 
-  const handleButtonClick = () => {
+  const handleAdd = () => {
     if (!clicked) {
       const newFavBridge: Omit<FavBridge, 'id'> = {
-        user_id: 123,
-        bridges_id: 123,
+        user_id: 1,
+        bridges_id: 1,
       }
       addFavBridge.mutate(newFavBridge, {
         onSuccess: (data) => {
@@ -24,7 +24,11 @@ function ChangeFavorite() {
         },
       })
     } else if (bridgeId !== null) {
-      deleteFavBridge.mutate(bridgeId, {
+      const deleteData: Omit<FavBridge, 'id'> = {
+        bridges_id: 1,
+        user_id: 1,
+      }
+      deleteFavBridge.mutate(deleteData, {
         onSuccess: () => {
           setClicked(false)
           setBridgeId(null)
@@ -32,16 +36,14 @@ function ChangeFavorite() {
       })
     }
   }
+
   return (
-    <button onClick={handleButtonClick}>
-      {clicked ? 'Delete Favorite Bridge' : 'Add Favorite Bridge'}
-    </button>
+    <>
+      <button onClick={handleAdd}>
+        {clicked ? 'Delete Favorite Bridge' : 'Add Favorite Bridge'}
+      </button>
+    </>
   )
 }
 
 export default ChangeFavorite
-
-// Write function that sets css
-//return html keeping in mind the html semantics
-//communicate with list team
-//integrate auth
