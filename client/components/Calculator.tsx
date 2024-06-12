@@ -14,12 +14,31 @@ export default function Calculator() {
   // sum = total % 10
   // if total > 10000, sum = 10000 % 100
 
-  const total = 80748
+  const total = 0
   const goatTotal = Math.floor(total / 10000) // expect: 8
   const goldRingTotal = Math.floor((total % 10000) / 100) //expect: 7
   const rockCandyTotal = (total % 100000) % 100 // expect: 48
 
-  console.log(goatTotal)
-  console.log(goldRingTotal)
-  console.log(rockCandyTotal)
+  // console.log(goatTotal)
+  // console.log(goldRingTotal)
+  // console.log(rockCandyTotal)
+
+  return (
+    <>
+      <hr></hr>
+      <h3>Toll Collection</h3>
+      <p>Bridge: Auckland Bridge</p>
+      {/* DATAPOINT NEEDED FROM DATABASE */}
+      <button>Add toll charge</button>
+      <hr></hr>
+      <section>
+        <h4>Troll-toll total</h4>
+        <p>incl. boogies and underbridge tax</p>
+        <hr></hr>
+        <p>Troll Rock Cancy(Ȼ): {rockCandyTotal}</p>
+        <p>Gold Rings(AuR): {goldRingTotal}</p>
+        <p>Goat(GT): {goatTotal}</p>
+      </section>
+    </>
+  )
 }
