@@ -10,3 +10,9 @@ export interface Bridge {
   active_user_id: number;
   image: string;
 }
+
+export interface tollAnalytics {
+  id: number
+  bridge_id: number
+  revenue: number
+}

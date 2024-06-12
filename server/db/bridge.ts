@@ -5,6 +5,10 @@ export async function getBridges(): Promise<Bridge[]> {
   return db('bridges').select('*')
 }
 
+export async function sendRevenue(newRevenue: number) {
+  return db('tollAnalytics').insert(newRevenue)
+}
+
 export async function getSingleBridge(name: string): Promise<Bridge[]> {
   return db('bridges')
     .select(
