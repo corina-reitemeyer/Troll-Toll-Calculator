@@ -28,8 +28,8 @@ function SingleBridgeView() {
             <ul>
                 <li>Location: {bridges.location}</li>
                 <li>Type: {bridges.type}</li>
-                <li>Year built: {bridges.year_built}</li>
-                <li>Length: {bridges.length_meters}m</li>
+                <li>Year built: {bridges.yearBuilt}</li>
+                <li>Length: {bridges.lengthMeters}m</li>
                 {bridges.lanes == null ? null : <li>Lanes: {bridges.lanes}</li>}
                 
             </ul>
