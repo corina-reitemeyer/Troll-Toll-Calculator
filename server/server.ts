@@ -2,12 +2,13 @@ import express from 'express'
 import * as Path from 'node:path'
 
 import bridgeRoutes from './routes/bridge'
-
+import favBridgeRoutes from './routes/favBridge'
 const server = express()
 
 server.use(express.json())
 
 server.use('/api/v1/bridges', bridgeRoutes)
+server.use('/api/v1/favBridges', favBridgeRoutes)
 
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(Path.resolve('public')))
