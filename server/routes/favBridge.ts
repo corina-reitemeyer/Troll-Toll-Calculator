@@ -4,22 +4,19 @@ import * as db from '../../server/db/favBridge'
 const router = express.Router()
 
 // POST 'api/v1/favBridges/'
-
 router.post('/', async (req, res) => {
-  const id = req.body
+  const newFavBridge = req.body
   try {
-    await db.addFavBridge(id)
-    res.sendStatus(202)
+    const addedBridge = await db.addFavBridge(newFavBridge)
+    res.status(202).json(addedBridge) // Return the added favorite bridge
   } catch (error) {
     console.error(`Database error ${error}`)
-    res.sendStatus(505)
+    res.status(500).json({ error: error.message }) // Send the error message
   }
 })
 
-// DEL 'api/v1/favBridges/:id (where the id refers to the bridge id)
-
+// DEL 'api/v1/favBridges/:id' (where the id refers to the bridge id)
 router.delete('/:id', async (req, res) => {
-  // const {user_id: userId, bridges_id: bridgesId} = Number(req.params.id)
   const bridgesId = Number(req.params.id)
   const { user_id } = req.body
   try {
@@ -27,7 +24,7 @@ router.delete('/:id', async (req, res) => {
     res.sendStatus(200)
   } catch (error) {
     console.error(`Database error ${error}`)
-    res.sendStatus(500)
+    res.status(500).json({ error: error.message }) // Send the error message
   }
 })
 

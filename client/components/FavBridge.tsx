@@ -11,8 +11,13 @@ function ChangeFavorite({ bridgeId, userId }) {
   const deleteFavBridge = useDeleteFavBridge()
 
   useEffect(() => {
-    console.log('clicked:', clicked)
-    console.log('favBridgeId:', favBridgeId)
+    console.log('Initial clicked:', clicked)
+    console.log('Initial favBridgeId:', favBridgeId)
+  }, [])
+
+  useEffect(() => {
+    console.log('Updated clicked:', clicked)
+    console.log('Updated favBridgeId:', favBridgeId)
   }, [clicked, favBridgeId])
 
   const handleAdd = () => {
@@ -21,10 +26,16 @@ function ChangeFavorite({ bridgeId, userId }) {
         user_id: userId,
         bridges_id: bridgeId,
       }
+      console.log('Adding new favorite bridge:', newFavBridge)
       addFavBridge.mutate(newFavBridge, {
         onSuccess: (data) => {
-          setFavBridgeId(data.id)
-          setClicked(true)
+          console.log('Add success:', data)
+          if (data && data.id) {
+            setFavBridgeId(data.id)
+            setClicked(true)
+          } else {
+            console.error('Invalid data returned on add:', data)
+          }
         },
         onError: (error) => {
           console.error('Error adding favorite bridge:', error)
@@ -35,8 +46,10 @@ function ChangeFavorite({ bridgeId, userId }) {
         bridges_id: bridgeId,
         user_id: userId,
       }
+      console.log('Deleting favorite bridge:', deleteData)
       deleteFavBridge.mutate(deleteData, {
-        onSuccess: () => {
+        onSuccess: (data) => {
+          console.log('Delete success:', data)
           setClicked(false)
           setFavBridgeId(null)
         },
