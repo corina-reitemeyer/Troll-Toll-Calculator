@@ -3,8 +3,9 @@ export interface Bridge {
   name: string;
   location: string;
   type: string;
-  yearBuilt: number;
-  lengthMeters: string;
+  year_built: number;
+  length_meters: string;
   lanes?: number | null;
-  addedByUser: string;
+  added_by_user_id: number;
+  active_user_id: number
 }
