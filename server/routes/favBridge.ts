@@ -8,14 +8,15 @@ router.post('/', async (req, res) => {
   const newFavBridge = req.body
   try {
     const addedBridge = await db.addFavBridge(newFavBridge)
-    res.status(202).json(addedBridge) // Return the added favorite bridge
+    res.status(202).json(addedBridge)
   } catch (error) {
     console.error(`Database error ${error}`)
-    res.status(500).json({ error: error.message }) // Send the error message
+    throw new Error()
   }
 })
 
 // DEL 'api/v1/favBridges/:id' (where the id refers to the bridge id)
+
 router.delete('/:id', async (req, res) => {
   const bridgesId = Number(req.params.id)
   const { user_id } = req.body
@@ -24,7 +25,7 @@ router.delete('/:id', async (req, res) => {
     res.sendStatus(200)
   } catch (error) {
     console.error(`Database error ${error}`)
-    res.status(500).json({ error: error.message }) // Send the error message
+    throw new Error()
   }
 })
 

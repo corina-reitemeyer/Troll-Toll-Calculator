@@ -8,7 +8,6 @@ export default function useAddFavBridge() {
     mutationFn: async (data: Omit<FavBridge, 'id'>) => {
       try {
         const response = await request.post('/api/v1/favBridges').send(data)
-        console.log('Response from addFavBridge:', response.body)
         if (!response.body || !response.body.id) {
           throw new Error('Invalid response from server')
         }
@@ -18,8 +17,7 @@ export default function useAddFavBridge() {
         throw error
       }
     },
-    onSuccess: (data) => {
-      console.log('onSuccess data:', data)
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['bridge'] })
     },
   })

@@ -1,24 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { FavBridge } from '../../models/favBridge'
 import useAddFavBridge from '../hooks/use-add-favBridge'
 import useDeleteFavBridge from '../hooks/use-delete-favBridge'
 
-function ChangeFavorite({ bridgeId, userId }) {
+function ChangeFavorite({
+  bridgeId,
+  userId,
+}: {
+  bridgeId: number
+  userId: number
+}) {
   const [clicked, setClicked] = useState(false)
   const [favBridgeId, setFavBridgeId] = useState<number | null>(null)
 
   const addFavBridge = useAddFavBridge()
   const deleteFavBridge = useDeleteFavBridge()
-
-  useEffect(() => {
-    console.log('Initial clicked:', clicked)
-    console.log('Initial favBridgeId:', favBridgeId)
-  }, [])
-
-  useEffect(() => {
-    console.log('Updated clicked:', clicked)
-    console.log('Updated favBridgeId:', favBridgeId)
-  }, [clicked, favBridgeId])
 
   const handleAdd = () => {
     if (!clicked) {
@@ -34,7 +30,7 @@ function ChangeFavorite({ bridgeId, userId }) {
             setFavBridgeId(data.id)
             setClicked(true)
           } else {
-            console.error('Invalid data returned on add:', data)
+            throw new Error()
           }
         },
         onError: (error) => {

@@ -10,7 +10,7 @@ export async function addFavBridge(
   try {
     const [insertedBridge] = await db('favBridges')
       .insert(favBridge)
-      .returning('*') // This returns the entire inserted row
+      .returning('*') 
     return insertedBridge
   } catch (error) {
     console.error(`Error adding favorite bridge: ${error}`)
@@ -18,8 +18,7 @@ export async function addFavBridge(
   }
 }
 
-// write function to remove favourite bridges - POST
-// where user_id / bridges_id?
+
 export async function delFavBridge(user_id: number, bridges_id: number) {
   try {
     await db('favBridges').where({ user_id, bridges_id }).del()
