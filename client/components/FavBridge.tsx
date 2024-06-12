@@ -25,7 +25,6 @@ function ChangeFavorite({
       console.log('Adding new favorite bridge:', newFavBridge)
       addFavBridge.mutate(newFavBridge, {
         onSuccess: (data) => {
-          console.log('Add success:', data)
           if (data && data.id) {
             setFavBridgeId(data.id)
             setClicked(true)
@@ -33,19 +32,14 @@ function ChangeFavorite({
             throw new Error()
           }
         },
-        onError: (error) => {
-          console.error('Error adding favorite bridge:', error)
-        },
       })
     } else if (favBridgeId !== null) {
       const deleteData: Omit<FavBridge, 'id'> = {
         bridges_id: bridgeId,
         user_id: userId,
       }
-      console.log('Deleting favorite bridge:', deleteData)
       deleteFavBridge.mutate(deleteData, {
-        onSuccess: (data) => {
-          console.log('Delete success:', data)
+        onSuccess: () => {
           setClicked(false)
           setFavBridgeId(null)
         },
