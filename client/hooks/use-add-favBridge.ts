@@ -1,18 +1,17 @@
-//hook to fetch favBridge api and post 
-
-import {useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import request from 'superagent'
-import { FavBridge } from '../../models/favBridge.ts'
+import { FavBridge } from '../../models/favBridge'
 
 export default function useAddFavBridge() {
   const queryClient = useQueryClient()
-  return useMutation({
-    mutationFn: async (data: FavBridge) => {
-      await request.post('/api/v1/favbridges').send(data)
-    },
-    onSuccess: async () => {
-      queryClient.invalidateQueries({queryKey: ['bridge']})
-    }
-  })
 
+  return useMutation({
+    mutationFn: async (data: Omit<FavBridge, 'id'>) => {
+      const response = await request.post('/api/v1/favBridges').send(data)
+      return response.body
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['bridge'] })
+    },
+  })
 }
