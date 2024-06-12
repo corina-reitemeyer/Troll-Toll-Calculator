@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { useParams } from "react-router-dom"
 import { getSingleBridge } from "../apis/bridge"
+import { useNavigate } from "react-router-dom"
 
 //import BridgeImage from "./BridgeImage"
 
@@ -9,6 +10,7 @@ import { getSingleBridge } from "../apis/bridge"
 
 function SingleBridgeView() {   
     const { name } = useParams()
+    const navigate = useNavigate()
     const {
         data: bridges,
         error,
@@ -38,7 +40,9 @@ function SingleBridgeView() {
 
             </ul>
         <img src={bridges.image} alt="bridge name"/>
-    
+        <div>
+        <button onClick={() => navigate("/")}>Back to Home</button>
+        </div>
         </>
     )
 }
