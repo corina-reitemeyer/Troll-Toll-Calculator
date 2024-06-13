@@ -5,8 +5,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-  padding: 0px;
-  margin: 0px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -39,9 +40,19 @@ h3 {
 }
 
 p,
-li {
+li,
+a {
   color: #3a8340;
   font-size: 18px;
+  text-decoration: none;
+}
+
+a {
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* Button style */
@@ -81,7 +92,9 @@ button:hover {
 
 .credits {
   font-style: normal;
+  font-size: 16px;
   font-weight: 400;
+  margin-top: 25px;
 }
 
 footer {
