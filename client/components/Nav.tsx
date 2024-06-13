@@ -24,10 +24,7 @@ function Nav() {
         <img className="placeholder-banner-icon" src='img-url' alt='troll logo' />
         <h2>TROLLTOLL PATROL</h2>
         <div className="placeholder-menu-button">
-          <Link to={`/toll-calculator`}>Toll Calculator</Link>
-        </div>
-        <div className="placeholder-menu-button">
-          <Link to={`/bridges`}>Bridges</Link>
+          <Link to={``}>Bridges</Link>
         </div>
 
         <IfAuthenticated>
