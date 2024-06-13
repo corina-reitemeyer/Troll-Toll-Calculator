@@ -20,7 +20,7 @@ function Nav() {
     <>
       <div className="placeholder-nav-bar">
         <img src='/images/logo.png' alt='troll patrol logo' />
-        <h2>TROLLTOLL PATROL</h2>
+
         <div className="menu-button">
           <Link to={``}>Bridges</Link>
         </div>
