@@ -1,7 +1,4 @@
 import express from 'express'
-
-import { JwtRequest } from '../auth0.ts'
-
 import * as db from '../db/bridge.ts'
 
 const router = express.Router()

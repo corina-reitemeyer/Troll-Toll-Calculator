@@ -13,6 +13,5 @@ export interface Bridge {
 export interface tollAnalytics {
   id: number
   bridge_id: number
-  timestamp: Date
   revenue: number
 }

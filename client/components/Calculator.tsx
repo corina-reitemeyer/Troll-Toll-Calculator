@@ -27,7 +27,11 @@ export default function Calculator() {
     setActiveGoalringTotal(Math.floor(((activeTotal + 50) % 10000) / 100))
     setActiveRockcandyTotal(((activeTotal + 50) % 10000) % 100)
 
-    mutation.mutate({ revenue: activeTotal })
+    mutation.mutate({
+      revenue: activeTotal,
+      id: 0,
+      bridge_id: 0,
+    })
   }
 
   return (
