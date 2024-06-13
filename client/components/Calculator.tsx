@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { sendRevenue } from '../apis/tollAnalytics'
-import Calculatorbanner from './CalculatorBanner'
+import Calculatorbanner from './CalculatorBanner.tsx'
 
 export default function Calculator() {
   const [activeTotal, setActiveTotal] = useState(0)
