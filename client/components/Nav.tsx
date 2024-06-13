@@ -31,7 +31,7 @@ function Nav() {
           <button onClick={handleSignOut}>Sign out</button>
 
           {/* render username + hardcoded profile pic */}
-          <img className="placeholder-profile-thumbnail" src='img-url' alt='active troll' />
+          <img width='200px'  className="placeholder-profile-thumbnail" src='/images/Profile_pic_placeholder.png' alt='active troll' />
           {user && <p>You are signed in as {user?.nickname}</p>}
 
   
