@@ -1,28 +1,38 @@
-import { useState } from 'react'
-import request from 'superagent'
-import { Bridge } from '../../models/bridge'
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+import request from "superagent"
+// import {Bridge} from "../../models/bridge"
+// import { response } from "express"
 
-export const UpdateActiveBridge = () => {
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<null | Error>(null)
-  const [bridge, setBridge] = useState<null | Bridge>(null)
 
-  const updateActiveBridge = async (id: number, action: 'update' | 'reset') => {
-    setLoading(true)
-    setError(null)
+export function useUpdateActiveBridge() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: async ({ id }: { id: number }) => {
+      const res = await request.put(`/api/v1/activeBridges/${id}`)
+      // if (!res.body){
+      //   throw Error
+      // }
+      return res.body
+    },
 
-    try {
-      const response = await request
-        .patch(`https://localhost:3000/api/v1/activeBridge/${id}`)
-        .send({ action })
-
-      setBridge(response.body.bridge)
-    } catch (err) {
-      throw Error
-    } finally {
-      setLoading(false)
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['bridges']})
     }
-  }
 
-  return { bridge, loading, error, updateActiveBridge }
+  })
+}
+
+export function useResetActiveBridge() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: async ({ id }: { id: number }) => {
+      const res = await request.delete(`/api/v1/activeBridges/${id}`)
+      return res.body
+    },
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['bridges']})
+    }
+
+  })
 }

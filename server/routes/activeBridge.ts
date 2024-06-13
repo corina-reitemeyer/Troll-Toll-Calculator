@@ -1,6 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express'
 import * as db from '../db/activeBridge'
-import Bridges from '../../client/components/Bridges'
 
 const router = express.Router()
 
@@ -34,40 +33,9 @@ router.get('/', async (req, res) => {
   }
 })
 
-// // PATCH route to update or reset added_by_user_id and active_user_id
-// router.patch('/:id', async (req: AuthenticatedRequest, res: Response) => {
-//   const id = Number(req.params.id)
-//   const action = req.body.action
-//   const userId = req.user?.id
-
-//   if (!userId) {
-//     return res.status(400).send({ message: 'User ID is required' })
-//   }
-
-//   try {
-//     let updatedBridge
-
-//     if (action === 'update') {
-//       updatedBridge = await db.updateActiveBridge(id, userId) //change to put request
-//     } else if (action === 'reset') {
-//       updatedBridge = await db.resetActiveBridge(id) //change to delete request
-//     } else {
-//       return res.status(400).send({ message: 'Invalid action specified' })
-//     }
-
-//     res.send({
-//       message: 'Bridge updated successfully.',
-//       bridge: updatedBridge,
-//     })
-//   } catch (error) {
-//     res.status(500).send({ message: 'Error updating bridge.', error })
-//   }
-// })
-
-
 router.put('/:id', async (req: AuthenticatedRequest, res: Response) => {
   const id = Number(req.params.id)
-  const userId = req.user?.id
+  const userId = Number(req.user?.id)
 
   const updatedBrdige = await db.updateActiveBridge(id, userId)
   res.send({ message: 'Bridge updated successfully.', bridge: updatedBrdige})
@@ -78,9 +46,8 @@ router.put('/:id', async (req: AuthenticatedRequest, res: Response) => {
 
 router.delete('/:id', async (req: AuthenticatedRequest, res: Response) => {
   const id = Number(req.params.id)
-  const userId = req.user?.id
 
-  const updatedBridge = await db.resetActiveBridge(id, userId)
+  const updatedBridge = await db.resetActiveBridge(id)
   res.send({ message: 'Bridge deleted successfully', bridge: updatedBridge})
 })
 
