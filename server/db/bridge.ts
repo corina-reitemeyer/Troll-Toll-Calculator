@@ -8,3 +8,16 @@ export async function getBridges(): Promise<Bridge[]> {
 export async function sendRevenue(newRevenue: number) {
   return db('tollAnalytics').insert(newRevenue)
 }
+
+export async function getSingleBridge(name: string): Promise<Bridge[]> {
+  return db('bridges')
+    .select(
+      'location',
+      'type',
+      'year_built as yearBuilt',
+      'length_meters as lengthMeters',
+      'lanes',
+    )
+    .where({ name })
+    .first()
+}

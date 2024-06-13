@@ -1,5 +1,5 @@
 import express from 'express'
-import { Bridge } from '../../models/bridge.ts'
+
 import { JwtRequest } from '../auth0.ts'
 
 import * as db from '../db/bridge.ts'
@@ -15,6 +15,16 @@ router.get('/', async (req, res) => {
   } catch (error) {
     console.error(error)
     res.status(500).send('Something went wrong')
+  }
+})
+
+router.get('/:name', async (req, res, next) => {
+  try {
+    const name = req.params.name
+    const bridge = await db.getSingleBridge(name)
+    res.json(bridge)
+  } catch (e) {
+    next(e)
   }
 })
 

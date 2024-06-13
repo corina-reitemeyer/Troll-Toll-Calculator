@@ -30,10 +30,6 @@ export default function Calculator() {
     mutation.mutate({ revenue: activeTotal })
   }
 
-  // const handleSendRevenue = () => {
-  //   mutation.mutate({ revenue: activeRockcandyTotal })
-  // }
-
   return (
     <>
       <hr></hr>

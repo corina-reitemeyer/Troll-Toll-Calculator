@@ -6,7 +6,8 @@ export interface Bridge {
   yearBuilt: number
   lengthMeters: string
   lanes?: number | null
-  addedByUser: string
+  added_by_user_id: number
+  active_user_id: number
 }
 
 export interface tollAnalytics {
