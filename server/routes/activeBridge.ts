@@ -20,6 +20,19 @@ const fakeAuthMiddleware = (
 
 router.use(fakeAuthMiddleware)
 
+//GET route to persist state
+
+router.get('/', async (req, res) => {
+  try {
+    const activeBridges = await db.getActiveBridges
+
+    res.json(activeBridges)
+  } catch (error) {
+    console.error(error)
+    res.status(500).send('Something went wrong')
+  }
+})
+
 // PATCH route to update or reset added_by_user_id and active_user_id
 router.patch(
   '/activeBridge/:id',
