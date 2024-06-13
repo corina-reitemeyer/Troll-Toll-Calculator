@@ -28,4 +28,15 @@ router.get('/:name', async (req, res, next) => {
   }
 })
 
+router.post('/', async (req, res) => {
+  const sendRevenue = req.body
+  try {
+    await db.sendRevenue(sendRevenue)
+    res.sendStatus(200)
+  } catch (error) {
+    console.error(`Database error ${error}`)
+    res.sendStatus(500)
+  }
+})
+
 export default router
