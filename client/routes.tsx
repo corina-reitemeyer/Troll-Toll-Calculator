@@ -1,3 +1,11 @@
 import { createRoutesFromElements, Route } from 'react-router-dom'
-import App from './components/App.tsx'
-export default createRoutesFromElements(<Route index element={<App />} />)
+import Bridges from './pages/Bridges.tsx'
+import SingleBridgeView from './pages/SingleBridgeView.tsx'
+import Layout from './components/Layout.tsx'
+
+export default createRoutesFromElements(
+  <Route path="/" element={<Layout />}>
+    <Route index element={<Bridges />} />
+    <Route path="bridge/:name" element={<SingleBridgeView />} />
+  </Route>,
+)
