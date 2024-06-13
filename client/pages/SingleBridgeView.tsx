@@ -31,10 +31,10 @@ function SingleBridgeView() {
     <>
       <h1>{name}</h1>
       <br></br>
-      <div className="flex">
+      <div className="flex-row">
         <ul className="content">
           <li>
-            <strong>Location: </strong>
+            <strong>Location:</strong>
             {bridges.location}
           </li>
           <li>
@@ -49,7 +49,11 @@ function SingleBridgeView() {
             <strong>Length: </strong>
             {bridges.lengthMeters}m
           </li>
-          {bridges.lanes == null ? null : <li>Lanes: {bridges.lanes}</li>}
+          {bridges.lanes == null ? null : (
+            <li>
+              <strong>Lanes:</strong> {bridges.lanes}
+            </li>
+          )}
         </ul>
 
         <img src={bridges.image} alt="bridge name" />

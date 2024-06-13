@@ -7,7 +7,7 @@ interface Props {
   bridgeName: string
 }
 
-export default function Calculator({ bridgeID, bridgeName }: Props) {
+export default function Calculator({ bridgeID }: Props) {
   const [activeTotal, setActiveTotal] = useState(0)
   const [activeGoldringTotal, setActiveGoalringTotal] = useState(0)
   const [activeRockcandyTotal, setActiveRockcandyTotal] = useState(0)
@@ -35,22 +35,20 @@ export default function Calculator({ bridgeID, bridgeName }: Props) {
   console.log(bridgeID)
   return (
     <>
-      <hr></hr>
-      <h3>Toll Collection</h3>
-      <p>Bridge: {bridgeName}</p>
-      {/* DATAPOINT NEEDED FROM DATABASE - this needs to be active bridge that is associated with the troll that is taking the toll */}
-      <button className="button-text" onClick={handleEvent}>
-        Add toll charge
-      </button>
-      <hr></hr>
-      <section>
-        <h4>Troll-toll total</h4>
-        <p>incl. boogies and underbridge tax</p>
+      <div className="flex-row">
+        <h3>Toll Collection</h3>
+        <button className="button-text" onClick={handleEvent}>
+          Add toll charge
+        </button>
         <hr></hr>
-        <p>Troll Rock Candy(Ȼ): {activeRockcandyTotal}</p>
-        <p>Gold Rings(AuR): {activeGoldringTotal}</p>
-        <p>Goat(GT): {activeGoatTotal}</p>
-      </section>
+        <section>
+          <h4>Troll-toll total</h4>
+          <p className="subtext">incl. boogies and underbridge tax</p>
+          <p>Troll Rock Candy(Ȼ): {activeRockcandyTotal}</p>
+          <p>Gold Rings(AuR): {activeGoldringTotal}</p>
+          <p>Goat(GT): {activeGoatTotal}</p>
+        </section>
+      </div>
     </>
   )
 }

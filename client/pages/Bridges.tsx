@@ -23,16 +23,18 @@ export default function Bridges() {
   return (
     <>
       <h1>Auckland Bridges🧌</h1>
-      <ul>
-        {bridges.map((br) => {
-          return (
-            <li key={br.name}>
-              <Link to={`bridge/${br.name}`}>{br.name}</Link>
-              <ChangeFavorite bridgeId={br.id} userId={userId} />
-            </li>
-          )
-        })}
-      </ul>
+      <div className="flex-row">
+        <ul className="content">
+          {bridges.map((br) => {
+            return (
+              <li key={br.name}>
+                <Link to={`bridge/${br.name}`}>{br.name}</Link>
+                <ChangeFavorite bridgeId={br.id} userId={userId} />
+              </li>
+            )
+          })}
+        </ul>
+      </div>
     </>
   )
 }
