@@ -21,13 +21,13 @@ function Nav() {
       <div className="placeholder-nav-bar">
         <img className="placeholder-banner-icon" src='img-url' alt='troll logo' />
         <h2>TROLLTOLL PATROL</h2>
-        <div className="placeholder-menu-button">
+        <div className="menu-button">
           <Link to={``}>Bridges</Link>
         </div>
 
         <IfAuthenticated>
           <button onClick={handleSignOut}>Sign out</button>
-          <img width='200px'  className="placeholder-profile-thumbnail" src='/images/Profile_pic_placeholder.png' alt='active troll' />
+          <img width='200px'  className="profile-thumbnail" src='/images/Profile_pic_placeholder.png' alt='active troll' />
           {user && <p>You are signed in as {user?.nickname}</p>}
         </IfAuthenticated>
         
