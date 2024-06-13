@@ -3,7 +3,13 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { sendRevenue } from '../apis/tollAnalytics'
 import CalculatorBanner from './CalculatorBanner.tsx'
 
-export default function Calculator() {
+interface Props {
+  bridgeID: number
+  bridgeName: string
+}
+
+export default function Calculator({ bridgeID }: Props) {
+  const user_id = 0 // This should be a real ID at some point!!!!
   const [activeTotal, setActiveTotal] = useState(0)
   const [activeGoldringTotal, setActiveGoalringTotal] = useState(0)
   const [activeRockcandyTotal, setActiveRockcandyTotal] = useState(0)
@@ -25,8 +31,8 @@ export default function Calculator() {
 
     mutation.mutate({
       revenue: activeTotal,
-      id: 0,
-      bridge_id: 0,
+      id: user_id,
+      bridge_id: bridgeID,
     })
   }
 
@@ -35,7 +41,7 @@ export default function Calculator() {
       <CalculatorBanner />
       <hr></hr>
       <h3>Toll Collection</h3>
-      <p>Bridge: {}</p>
+      <p>Bridge: {bridgeName}</p>
       {/* DATAPOINT NEEDED FROM DATABASE - this needs to be active bridge that is associated with the troll that is taking the toll */}
       <button onClick={handleEvent}>Add toll charge</button>
       <hr></hr>
