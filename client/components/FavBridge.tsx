@@ -52,7 +52,9 @@ function ChangeFavorite({
 
   return (
     <button onClick={handleAdd}>
-      {clicked ? 'Delete Favorite Bridge' : 'Add Favorite Bridge'}
+      <p className="button-text">
+        {clicked ? 'Delete Favorite Bridge' : 'Add Favorite Bridge'}
+      </p>
     </button>
   )
 }

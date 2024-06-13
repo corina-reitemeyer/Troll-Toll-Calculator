@@ -1,6 +1,6 @@
 import express from 'express'
 
-import { JwtRequest } from '../auth0.ts'
+// import { JwtRequest } from '../auth0.ts'
 
 import * as db from '../db/bridge.ts'
 
@@ -25,6 +25,17 @@ router.get('/:name', async (req, res, next) => {
     res.json(bridge)
   } catch (e) {
     next(e)
+  }
+})
+
+router.post('/', async (req, res) => {
+  const sendRevenue = req.body
+  try {
+    await db.sendRevenue(sendRevenue)
+    res.sendStatus(200)
+  } catch (error) {
+    console.error(`Database error ${error}`)
+    res.sendStatus(500)
   }
 })
 
