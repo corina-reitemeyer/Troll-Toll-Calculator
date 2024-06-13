@@ -1,4 +1,4 @@
-export default function Calculatorbanner() {
+export default function CalculatorBanner() {
   return (
     <div className="banner">
       <h1>Toll Tally for Tantalizing Trolls</h1>
