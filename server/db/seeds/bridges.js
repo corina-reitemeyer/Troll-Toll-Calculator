@@ -1,4 +1,5 @@
 export async function seed(knex) {
+  await knex('bridges').del()
   await knex('bridges').insert([
     {
       id: 1,
@@ -10,7 +11,7 @@ export async function seed(knex) {
       lanes: 8,
       added_by_user_id: null,
       active_user_id: null,
-      image: "/public/images/Auckland_Habour_Bridge.jpeg"
+      image: '/public/images/Auckland_Habour_Bridge.jpeg',
     },
     {
       id: 2,
@@ -34,7 +35,7 @@ export async function seed(knex) {
       lanes: null,
       added_by_user_id: null,
       active_user_id: null,
-      image: "/public/images/Jacobs_Ladder_Bridge.jpg",
+      image: '/public/images/Jacobs_Ladder_Bridge.jpg',
     },
     {
       id: 4,
@@ -58,7 +59,7 @@ export async function seed(knex) {
       lanes: null,
       added_by_user_id: null,
       active_user_id: null,
-      image: "/public/images/Newmarket_Viaduct.jpg",
+      image: '/public/images/Newmarket_Viaduct.jpg',
     },
     {
       id: 6,
@@ -82,7 +83,7 @@ export async function seed(knex) {
       lanes: null,
       added_by_user_id: null,
       active_user_id: null,
-      image: "/public/images/Onepoto_Bridge.jpg",
+      image: '/public/images/Onepoto_Bridge.jpg',
     },
     {
       id: 8,
@@ -106,7 +107,7 @@ export async function seed(knex) {
       lanes: null,
       added_by_user_id: null,
       active_user_id: null,
-      image: "/public/images/Tamaki_Bridge.jpg",
+      image: '/public/images/Tamaki_Bridge.jpg',
     },
     {
       id: 10,
@@ -130,7 +131,7 @@ export async function seed(knex) {
       lanes: null,
       added_by_user_id: null,
       active_user_id: null,
-      image: "/public/images/Victoria_Park_Viaduct.jpg",
+      image: '/public/images/Victoria_Park_Viaduct.jpg',
     },
     {
       id: 12,
@@ -142,7 +143,7 @@ export async function seed(knex) {
       lanes: null,
       added_by_user_id: null,
       active_user_id: null,
-      image: "/public/images/Westgate_Pedestrian_and_Cycle_Bridge.jpg",
+      image: '/public/images/Westgate_Pedestrian_and_Cycle_Bridge.jpg',
     },
     {
       id: 13,
