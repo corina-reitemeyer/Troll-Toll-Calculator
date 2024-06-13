@@ -28,11 +28,14 @@ function Nav() {
         <div className="placeholder-menu-button">
           <Link to={`/bridges`}>Bridges</Link>
         </div>
-        
+
         <IfAuthenticated>
           <button onClick={handleSignOut}>Sign out</button>
           <p>The user is logged in</p>
           {/* render username + hardcoded profile pic */}
+          <a href='profile-url'>
+            <img className="placeholder-profile-thumbnail" src='img-url' alt='your profile image' />
+          </a>
         </IfAuthenticated>
         <IfNotAuthenticated>
           <p>The user is NOT logged in !!!!!!</p>
