@@ -4,11 +4,6 @@ import { sendRevenue } from '../apis/tollAnalytics'
 import Calculatorbanner from './CalculatorBanner'
 
 export default function Calculator() {
-  // const total = 0
-  // const goatTotal = Math.floor(total / 10000)
-  // const goldRingTotal = Math.floor((total % 10000) / 100)
-  // const rockCandyTotal = (total % 100000) % 100
-
   const [activeTotal, setActiveTotal] = useState(0)
   const [activeGoldringTotal, setActiveGoalringTotal] = useState(0)
   const [activeRockcandyTotal, setActiveRockcandyTotal] = useState(0)
