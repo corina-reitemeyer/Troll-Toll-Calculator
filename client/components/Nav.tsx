@@ -18,8 +18,6 @@ function Nav() {
 
   return (
     <>
-    {/* trolltoll logo, home button, bridges button, calculator button */}
-    {/* demo layout for the nav bar etc */}
       <div className="placeholder-nav-bar">
         <img className="placeholder-banner-icon" src='img-url' alt='troll logo' />
         <h2>TROLLTOLL PATROL</h2>
@@ -29,13 +27,10 @@ function Nav() {
 
         <IfAuthenticated>
           <button onClick={handleSignOut}>Sign out</button>
-
-          {/* render username + hardcoded profile pic */}
           <img width='200px'  className="placeholder-profile-thumbnail" src='/images/Profile_pic_placeholder.png' alt='active troll' />
           {user && <p>You are signed in as {user?.nickname}</p>}
-
-  
         </IfAuthenticated>
+        
         <IfNotAuthenticated>
           <p>The user is NOT logged in !!!!!!</p>
           <button onClick={handleSignIn}>Please sign in here</button>
