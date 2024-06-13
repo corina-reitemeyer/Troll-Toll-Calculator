@@ -47,9 +47,9 @@ router.patch('/:id', async (req: AuthenticatedRequest, res: Response) => {
     let updatedBridge
 
     if (action === 'update') {
-      updatedBridge = await db.updateActiveBridge(id, userId, userId) //change to put request
+      updatedBridge = await db.updateActiveBridge(id, userId) //change to put request
     } else if (action === 'reset') {
-      updatedBridge = await db.resetActiveBridge(id)//change to delete request
+      updatedBridge = await db.resetActiveBridge(id) //change to delete request
     } else {
       return res.status(400).send({ message: 'Invalid action specified' })
     }

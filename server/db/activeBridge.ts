@@ -7,14 +7,11 @@ export async function getActiveBridges(): Promise<Bridge[]> {
 
 export async function updateActiveBridge(
   id: number,
-  added_by_user_id: number,
   active_user_id: number,
 ): Promise<void> {
-  await db('bridges').where({ id }).update({ added_by_user_id, active_user_id })
+  await db('bridges').where({ id }).update({ active_user_id })
 }
 
 export async function resetActiveBridge(id: number): Promise<void> {
-  await db('bridges')
-    .where({ id })
-    .update({ added_by_user_id: null, active_user_id: null })
+  await db('bridges').where({ id }).update({ active_user_id: null })
 }
