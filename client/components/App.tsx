@@ -1,4 +1,4 @@
-import Bridges from './Bridges'
+
 import { Outlet } from 'react-router-dom'
 
 function App() {
