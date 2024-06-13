@@ -18,6 +18,7 @@ export async function getSingleBridge(name: string): Promise<Bridge[]> {
       'year_built as yearBuilt',
       'length_meters as lengthMeters',
       'lanes',
+      'image',
     )
     .where({ name })
     .first()
