@@ -1,0 +1,56 @@
+import express, { Request, Response, NextFunction } from 'express'
+import * as db from '../db/activeBridge'
+
+const router = express.Router()
+
+interface AuthenticatedRequest extends Request {
+  user?: {
+    id: number
+  }
+}
+
+const fakeAuthMiddleware = (
+  req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction,
+) => {
+  req.user = { id: 1 }
+  next()
+}
+
+router.use(fakeAuthMiddleware)
+
+// PATCH route to update or reset added_by_user_id and active_user_id
+router.patch(
+  '/activeBridge/:id',
+  async (req: AuthenticatedRequest, res: Response) => {
+    const id = Number(req.params.id)
+    const action = req.body.action
+    const userId = req.user?.id
+
+    if (!userId) {
+      return res.status(400).send({ message: 'User ID is required' })
+    }
+
+    try {
+      let updatedBridge
+
+      if (action === 'update') {
+        updatedBridge = await db.updateActiveBridge(id, userId, userId)
+      } else if (action === 'reset') {
+        updatedBridge = await db.resetActiveBridge(id)
+      } else {
+        return res.status(400).send({ message: 'Invalid action specified' })
+      }
+
+      res.status(200).send({
+        message: 'Bridge updated successfully.',
+        bridge: updatedBridge,
+      })
+    } catch (error) {
+      res.status(500).send({ message: 'Error updating bridge.', error })
+    }
+  },
+)
+
+export default router
