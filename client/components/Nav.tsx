@@ -32,11 +32,12 @@ function Nav() {
 
         <IfAuthenticated>
           <button onClick={handleSignOut}>Sign out</button>
-          <p>The user is logged in</p>
+          {user && <p>{user?.nickname} is signed in</p>}
           {/* render username + hardcoded profile pic */}
           <a href='profile-url'>
             <img className="placeholder-profile-thumbnail" src='img-url' alt='active troll' />
           </a>
+  
         </IfAuthenticated>
         <IfNotAuthenticated>
           <p>The user is NOT logged in !!!!!!</p>
