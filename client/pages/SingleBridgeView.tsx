@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import { getSingleBridge } from '../apis/bridge'
 import { useNavigate } from 'react-router-dom'
+import Calculator from '../components/Calculator'
 
 //import BridgeImage from "./BridgeImage"
 
@@ -38,6 +39,7 @@ function SingleBridgeView() {
         {bridges.lanes == null ? null : <li>Lanes: {bridges.lanes}</li>}
       </ul>
       <img src={bridges.image} alt="bridge name" />
+      <Calculator bridgeID={bridges.id} bridgeName={bridges.name} />
       <div>
         <button onClick={() => navigate('/')}>Back to Home</button>
       </div>
