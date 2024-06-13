@@ -24,7 +24,7 @@ function Nav() {
         <img className="placeholder-banner-icon" src='img-url' alt='troll logo' />
         <h2>TROLLTOLL PATROL</h2>
         <div className="placeholder-menu-button">
-          <Link to={`/home`}>Home</Link>
+          <Link to={`/toll-calculator`}>Toll Calculator</Link>
         </div>
         <div className="placeholder-menu-button">
           <Link to={`/bridges`}>Bridges</Link>
@@ -34,10 +34,9 @@ function Nav() {
           <button onClick={handleSignOut}>Sign out</button>
 
           {/* render username + hardcoded profile pic */}
-          <a href='profile-url'>
-            <img className="placeholder-profile-thumbnail" src='img-url' alt='active troll' />
-            {user && <p>You are signed in as {user?.nickname}</p>}
-          </a>
+          <img className="placeholder-profile-thumbnail" src='img-url' alt='active troll' />
+          {user && <p>You are signed in as {user?.nickname}</p>}
+
   
         </IfAuthenticated>
         <IfNotAuthenticated>
