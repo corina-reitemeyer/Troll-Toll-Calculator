@@ -39,7 +39,9 @@ export default function Calculator({ bridgeID, bridgeName }: Props) {
       <h3>Toll Collection</h3>
       <p>Bridge: {bridgeName}</p>
       {/* DATAPOINT NEEDED FROM DATABASE - this needs to be active bridge that is associated with the troll that is taking the toll */}
-      <button onClick={handleEvent}>Add toll charge</button>
+      <button className="button-text" onClick={handleEvent}>
+        Add toll charge
+      </button>
       <hr></hr>
       <section>
         <h4>Troll-toll total</h4>
