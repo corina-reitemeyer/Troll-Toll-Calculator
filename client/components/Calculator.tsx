@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { sendRevenue } from '../apis/tollAnalytics'
+import Calculatorbanner from './CalculatorBanner'
 
 export default function Calculator() {
   // const total = 0
@@ -36,6 +37,7 @@ export default function Calculator() {
 
   return (
     <>
+      <Calculatorbanner />
       <hr></hr>
       <h3>Toll Collection</h3>
       <p>Bridge: {}</p>
