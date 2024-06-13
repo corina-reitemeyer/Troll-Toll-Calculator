@@ -21,7 +21,8 @@ function Nav() {
     {/* trolltoll logo, home button, bridges button, calculator button */}
     {/* demo layout for the nav bar etc */}
       <div className="placeholder-nav-bar">
-
+        <img className="placeholder-banner-icon" src='img-url' alt='troll logo' />
+        <h2>TROLLTOLL PATROL</h2>
         <div className="placeholder-menu-button">
           <Link to={`/home`}>Home</Link>
         </div>
@@ -34,7 +35,7 @@ function Nav() {
           <p>The user is logged in</p>
           {/* render username + hardcoded profile pic */}
           <a href='profile-url'>
-            <img className="placeholder-profile-thumbnail" src='img-url' alt='your profile image' />
+            <img className="placeholder-profile-thumbnail" src='img-url' alt='active troll' />
           </a>
         </IfAuthenticated>
         <IfNotAuthenticated>
