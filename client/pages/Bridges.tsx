@@ -2,6 +2,8 @@ import { getBridges } from '../apis/bridge.ts'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 
+import ChangeActive from '../components/ActiveBridge.tsx'
+
 import ChangeFavorite from '../components/FavBridge.tsx'
 
 const userId = 1 // Assuming a fixed user id for this example
@@ -30,6 +32,8 @@ export default function Bridges() {
               <li key={br.name}>
                 <Link to={`bridge/${br.name}`}>{br.name}</Link>
                 <ChangeFavorite bridgeId={br.id} userId={userId} />
+
+                <ChangeActive isActive={br.active_user_id != null} id={br.id} />
               </li>
             )
           })}
