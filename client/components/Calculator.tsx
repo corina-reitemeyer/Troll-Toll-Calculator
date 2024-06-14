@@ -35,7 +35,7 @@ export default function Calculator({ bridgeID }: Props) {
   console.log(bridgeID)
   return (
     <>
-      <div className="flex-row">
+      <div className="spacing flex-row">
         <h3>Toll Collection</h3>
         <button className="button-text" onClick={handleEvent}>
           Add toll charge
