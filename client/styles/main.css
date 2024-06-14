@@ -1,3 +1,111 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  margin: 0;
+  line-height: normal;
+  font-family: Montserrat, sans-serif;
+}
+
+/* Text styles */
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
+  color: #3a8340;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 35px;
+}
+h2 {
+  font-weight: 400;
+  font-size: 25px;
+}
+
+h3 {
+  font-weight: 700;
+  text-align: left;
+}
+
+p,
+li {
+  color: #3a8340;
+  font-size: 18px;
+}
+
+/* Button style */
+button {
+  position: relative;
+  background-color: #3a8340;
+  border: 1px solid #3a8340;
+  border-color: #3a8340;
+  border-radius: 8px;
+  padding: 10px 18px;
+  width: 10%;
+  margin: 30px;
+}
+
+button:hover {
+  background-color: #306d35;
+}
+
+.button-text {
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* Divider line styles  */
+.border {
+  border-top: 1px solid;
+  border-color: #cfcfcf;
+  width: 50%;
+}
+
+/* Footer styling */
+.logo {
+  width: 15%;
+  margin: 20px;
+}
+
+.credits {
+  font-style: normal;
+  font-weight: 400;
+}
+
+footer {
+  border: none;
+}
+
+/* Flexbox */
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  align-items: center;
+  justify-content: center;
+}
+
+.content-right {
+  align-items: right;
+  justify-content: right;
+}
+
+/* Banner */
+
+.banner {
+  background-color: #fafafa;
+}

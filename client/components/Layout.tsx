@@ -1,15 +1,16 @@
 import { Outlet } from 'react-router-dom'
+import Footer from './Footer'
 
 export default function Layout() {
   return (
     <>
-      <header>
-        <h1>Large Thumb Digital</h1>
-      </header>
+      <header></header>
       <main>
         <Outlet />
       </main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }
