@@ -6,7 +6,6 @@ import ChangeActive from '../components/ActiveBridge.tsx'
 
 import ChangeFavorite from '../components/FavBridge.tsx'
 
-
 const userId = 1 // Assuming a fixed user id for this example
 
 export default function Bridges() {
@@ -26,18 +25,20 @@ export default function Bridges() {
   return (
     <>
       <h1>Auckland Bridges🧌</h1>
-      <ul>
-        {bridges.map((br) => {
-          return (
-            <li key={br.name}>
-              <Link to={`bridge/${br.name}`}>{br.name}</Link>
-              <ChangeFavorite bridgeId={br.id} userId={userId} />
-              
-              <ChangeActive  isActive={br.active_user_id != null} id={br.id} />
-            </li>
-          )
-        })}
-      </ul>
+      <div className="flex-row">
+        <ul className="content">
+          {bridges.map((br) => {
+            return (
+              <li key={br.name}>
+                <Link to={`bridge/${br.name}`}>{br.name}</Link>
+                <ChangeFavorite bridgeId={br.id} userId={userId} />
+
+                <ChangeActive isActive={br.active_user_id != null} id={br.id} />
+              </li>
+            )
+          })}
+        </ul>
+      </div>
     </>
   )
 }

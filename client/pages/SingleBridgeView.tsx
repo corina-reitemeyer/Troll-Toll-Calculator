@@ -31,17 +31,38 @@ function SingleBridgeView() {
     <>
       <h1>{name}</h1>
       <br></br>
-      <ul>
-        <li>Location: {bridges.location}</li>
-        <li>Type: {bridges.type}</li>
-        <li>Year built: {bridges.yearBuilt}</li>
-        <li>Length: {bridges.lengthMeters}m</li>
-        {bridges.lanes == null ? null : <li>Lanes: {bridges.lanes}</li>}
-      </ul>
-      <img src={bridges.image} alt="bridge name" />
+      <div className="flex-row">
+        <ul className="content">
+          <li>
+            <strong>Location:</strong>
+            {bridges.location}
+          </li>
+          <li>
+            <strong>Type: </strong>
+            {bridges.type}
+          </li>
+          <li>
+            <strong>Year built: </strong>
+            {bridges.yearBuilt}
+          </li>
+          <li>
+            <strong>Length: </strong>
+            {bridges.lengthMeters}m
+          </li>
+          {bridges.lanes == null ? null : (
+            <li>
+              <strong>Lanes:</strong> {bridges.lanes}
+            </li>
+          )}
+        </ul>
+
+        <img src={bridges.image} alt="bridge name" />
+      </div>
       <Calculator bridgeID={bridges.id} bridgeName={bridges.name} />
       <div>
-        <button onClick={() => navigate('/')}>Back to Home</button>
+        <button className="button-text" onClick={() => navigate('/')}>
+          Back to Home
+        </button>
       </div>
     </>
   )

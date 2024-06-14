@@ -1,8 +1,7 @@
 export default function Footer() {
   return (
-    <>
-      <div className="border" />
-      <div className="flex">
+    <div>
+      <footer className="flex">
         <img
           src="/images/logo.png"
           className="logo content"
@@ -11,7 +10,7 @@ export default function Footer() {
         <p className="credits">
           © 2077 TrollToll Patrol. All rights reserved.
         </p>
-      </div>
-    </>
+      </footer>
+    </div>
   )
 }
